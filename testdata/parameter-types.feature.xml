@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="Cucumber" time="0.005" tests="1" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00Z">
-<testcase classname="Parameter Types" name="Flight transformer" time="0.003">
+<testcase classname="Parameter Types" name="Flight transformer" time="0.003" file="samples/parameter-types/parameter-types.feature" line="10">
 <system-out><![CDATA[
 Given LHR-CDG has been delayed..............................................passed
 ]]></system-out>

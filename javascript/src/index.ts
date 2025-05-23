@@ -40,6 +40,8 @@ export default {
             classname: testCase.classname,
             name: testCase.name,
             time: testCase.time,
+            line: testCase.line,
+            file: testCase.uri
           })
           if (testCase.failure) {
             const failureElement = testcaseElement.ele(testCase.failure.kind)

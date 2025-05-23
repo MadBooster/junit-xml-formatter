@@ -29,6 +29,8 @@ interface ReportSuite {
 
 interface ReportTestCase {
   classname: string
+  uri: string,
+  line?: number
   name: string
   time: number
   failure?: ReportFailure
@@ -63,9 +65,14 @@ function makeTestCases(query: Query): ReadonlyArray<ReportTestCase> {
     const pickle = query.findPickleBy(testCaseStarted)
     assert.ok(pickle, 'Expected to find Pickle by TestCaseStarted')
     const feature = query.findFeatureBy(testCaseStarted)
+    const scenario = feature?.children.find(child => {
+      return child.scenario?.id && pickle.astNodeIds.includes(child.scenario.id)
+    })?.scenario
 
     return {
       classname: feature?.name ?? pickle.uri,
+      uri: pickle.uri,
+      line: scenario?.location.line,
       name: query.findNameOf(pickle, NAMING_STRATEGY),
       time: durationToSeconds(query.findTestCaseDurationBy(testCaseStarted)),
       failure: makeFailure(query, testCaseStarted),
