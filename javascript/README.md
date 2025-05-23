@@ -1,5 +1,6 @@
-⚠️ This is an internal package; you don't need to install it in order to use the junit formatter in `@cucumber/cucumber` as it's built in there.
+This is forked version of default internal junit formatter package of `@cucumber/cucumber`.
+Adds file name and line number of scenario to default formatter output.
 
-# junit-xml-formatter
+# cucumber-junit-xml-formatter
 
 > Takes a stream of Cucumber messages and outputs a JUnit XML report
